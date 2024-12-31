@@ -19,6 +19,20 @@ import 'swiper/css/scrollbar';
 import axios from 'axios';
 
 function Career() {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await axios.get('https://dwinsoftadmin.boonnet.co/api/blog');
+        setBlogs(response.data);
+      } catch (error) {
+        console.error("Error fetching blog data:", error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
 
   // Animation
   useEffect(() => {
@@ -364,7 +378,47 @@ function Career() {
                       "radial-gradient(circle closest-side, rgba(76, 129, 197, 0.8), rgba(108, 164, 233, 0.3), rgba(255, 255, 255, 0.1))",
                   }}
                 >
-                  <div
+
+<div className="row">
+                    {blogs.map((blog, index) => (
+                      <div
+                        className="col-md-4"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                        key={blog.id}
+                      >
+                        <div className="card mt-4" id="boxtagcard" style={{ display: "flex", width: "100%" }}>
+                          <img
+                            src={blog.banner_image_url || "/Image/blog-i.jpg"}
+                            alt={blog.title}
+                            style={{ width: "100%", height: "200px", objectFit: "cover" }}
+                          />
+                          <div className="card-body" style={{ marginRight: "20px" }}>
+                            <div className="d-flex justify-content-between">
+                              <div className="col-md-4">
+                                <p>{new Date(blog.createdAt).toDateString()}</p>
+                              </div>
+                            </div>
+                            <h3>{blog.title}</h3>
+                            <p>{blog.short_desc}</p>
+                            <Link href={`/blogs/${blog.id}`}>
+                              <button className="" id="servicecard2">
+                                READ MORE
+                                <img
+                                  src="/Image/next.png"
+                                  alt="Next"
+                                  width={18}
+                                  height={18}
+                                />
+                              </button>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* <div
                     className="col-md-4"
                     data-aos="fade-up"
                     data-aos-delay="200"
@@ -374,19 +428,19 @@ function Career() {
 
                         <div className="card-body" style={{marginRight: "20px"}}>
                           <div className="d-flex">
-                            {/* <div className='col-md-6'>
+                            <div className='col-md-6'>
                           <h4 id='boxtag' className='text-center me-2'>TECHNOLOGY</h4>
                         </div>
                         <div className='col-md-6'>
                           <h4 id='boxtag' className='text-center me-2'>TECHNOLOGY</h4>
-                        </div> */}
+                        </div>
                           </div>
                           <div className="d-flex justify-content-between">
                             <div className="col-md-4">
                               <p>Thu Mar21 2024</p>
                             </div>
                             <div className="col-md-4">
-                              {/* <p>
+                              <p>
                                 <img
                                   src="\Image\conversation.png"
                                   alt=""
@@ -394,7 +448,7 @@ function Career() {
                                   height={15}
                                 />{" "}
                                 0
-                              </p> */}
+                              </p>
                             </div>
                           </div>
                           <h3>this blog is about</h3>
@@ -422,12 +476,12 @@ function Career() {
 
                     <div className='card-body '>
                       <div className='d-flex'>
-                        {/* <div className='col-md-6'>
+                        <div className='col-md-6'>
                           <h4 id='boxtag' className='text-center me-2'>TECHNOLOGY</h4>
                         </div>
                         <div className='col-md-6'>
                           <h4 id='boxtag' className='text-center me-2'>TECHNOLOGY</h4>
-                        </div> */}
+                        </div>
 
                       </div>
                       <div className='d-flex justify-content-between'>
@@ -435,8 +489,8 @@ function Career() {
                           <p>Thu Mar 21 2024</p>
                         </div>
                         <div className='col-md-4'>
-                          {/* <p>
-                            <img src='\Image\conversation.png' alt='' width={15} height={15} /> 0</p> */}
+                          <p>
+                            <img src='\Image\conversation.png' alt='' width={15} height={15} /> 0</p>
                         </div>
 
                       </div>
@@ -466,12 +520,12 @@ function Career() {
 
                     <div className='card-body '>
                       <div className='d-flex'>
-                        {/* <div className='col-md-6'>
+                        <div className='col-md-6'>
                           <h4 id='boxtag' className='text-center me-2'>TECHNOLOGY</h4>
                         </div>
                         <div className='col-md-6'>
                           <h4 id='boxtag' className='text-center me-2'>TECHNOLOGY</h4>
-                        </div> */}
+                        </div>
 
                       </div>
                       <div className='d-flex justify-content-between'>
@@ -479,8 +533,8 @@ function Career() {
                           <p>Thu Mar 21 2024</p>
                         </div>
                         <div className='col-md-4 '>
-                          {/* <p>
-                            <img src='\Image\conversation.png' alt='' width={15} height={15} /> 0</p> */}
+                          <p>
+                            <img src='\Image\conversation.png' alt='' width={15} height={15} /> 0</p>
                         </div>
 
                       </div>
@@ -503,7 +557,7 @@ function Career() {
                           
                     </div>
                   </div>
-                </div>
+                </div> */}
                 </div>
                 
                 {/* Pagination */}

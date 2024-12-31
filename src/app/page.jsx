@@ -30,6 +30,19 @@ import "swiper/swiper-bundle.css";
 import axios from "axios";
 
 export default function Home() {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await axios.get('https://dwinsoftadmin.boonnet.co/api/blog');
+        setBlogs(response.data);
+      } catch (error) {
+        console.error("Error fetching blog data:", error);
+      }
+    };
+    fetchBlogs();
+  }, []);
 
   // Animation
   useEffect(() => {
@@ -146,7 +159,7 @@ export default function Home() {
             id="logotop"
           />
           <div>
-           
+
           </div>
         </div>
         <div
@@ -154,7 +167,7 @@ export default function Home() {
           id="next"
         >
           <h5 id="bannerh1">
-          Transforming Visions Into 
+            Transforming Visions Into
             <br />Digital{" "}
             {showReality ? (
               <span style={{ color: "#2e7de0" }}>Realities</span>
@@ -164,10 +177,10 @@ export default function Home() {
           </h5>
         </div>
 
-        
+
 
         <Layout>
-        
+
           <div className="Homepage" style={{ overflow: "hidden" }}>
             {/* 1st Module Starts */}
 
@@ -179,15 +192,15 @@ export default function Home() {
               >
                 <div className="container">
                   <div className="row" id="newbannersection">
-                  
+
                     {/* <video autoPlay muted loop className="background-video">
                       <source
                         src="/video/banner1.mp4"
                         type="video/mp4"
                       />
                     </video> */}
-                     
-       
+
+
 
                     <Swiper
                       breakpoints={{
@@ -526,16 +539,16 @@ export default function Home() {
                               Our expert consultants offer strategic MuleSoft
                               ...
                             </p>
-                              <button href="#" className="" id="servicecard2">
-                                {" "}
-                                Read More{" "}
-                                <img
-                                  src="\Image\next.png"
-                                  alt=""
-                                  width={18}
-                                  height={18}
-                                />
-                              </button>{" "}
+                            <button href="#" className="" id="servicecard2">
+                              {" "}
+                              Read More{" "}
+                              <img
+                                src="\Image\next.png"
+                                alt=""
+                                width={18}
+                                height={18}
+                              />
+                            </button>{" "}
                           </div>
                         </div>
                       </Link>
@@ -566,55 +579,55 @@ export default function Home() {
                               Transform your ideas into reality with our
                               full-stack ...{" "}
                             </p>
-                              <button href="#" className="" id="servicecard2">
-                                {" "}
-                                Read More{" "}
-                                <img
-                                  src="\Image\next.png"
-                                  alt=""
-                                  width={18}
-                                  height={18}
-                                />
-                              </button>{" "}
+                            <button href="#" className="" id="servicecard2">
+                              {" "}
+                              Read More{" "}
+                              <img
+                                src="\Image\next.png"
+                                alt=""
+                                width={18}
+                                height={18}
+                              />
+                            </button>{" "}
                           </div>
                         </div>
                       </Link>
                     </div>
                     <div className="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <Link href="/services/app">
-                  <div
-                    className="card mt-4"
-                    id="servicecard"
-                    style={{ cursor: "pointer" }}
-                  >
-                    <div className="card-body text-start">
-                      <img
-                        src="\Image\full stack.png"
-                        alt=""
-                        width={50}
-                        height={50}
-                        className="mb-4"
-                      />
-                      <h3>
-                        APP DEVELOPMENT <br /> FOR ANDROID & IOS
-                      </h3>
-                      <p>
-                        Reach your audience on any device with our custom ...
-                      </p>
-                      <button href="#" className="" id="servicecard2">
-                        {" "}
-                        Read More{" "}
-                        <img
-                          src="\Image\next.png"
-                          alt=""
-                          width={18}
-                          height={18}
-                        />
-                      </button>{" "}
+                      <Link href="/services/app">
+                        <div
+                          className="card mt-4"
+                          id="servicecard"
+                          style={{ cursor: "pointer" }}
+                        >
+                          <div className="card-body text-start">
+                            <img
+                              src="\Image\full stack.png"
+                              alt=""
+                              width={50}
+                              height={50}
+                              className="mb-4"
+                            />
+                            <h3>
+                              APP DEVELOPMENT <br /> FOR ANDROID & IOS
+                            </h3>
+                            <p>
+                              Reach your audience on any device with our custom ...
+                            </p>
+                            <button href="#" className="" id="servicecard2">
+                              {" "}
+                              Read More{" "}
+                              <img
+                                src="\Image\next.png"
+                                alt=""
+                                width={18}
+                                height={18}
+                              />
+                            </button>{" "}
+                          </div>
+                        </div>
+                      </Link>
                     </div>
-                  </div>
-                </Link>
-              </div>
                     {/* <div
                       className="col-md-4"
                       data-aos="fade-up"
@@ -723,16 +736,16 @@ export default function Home() {
                             <p>
                               Enhance your business collaborations with our ...{" "}
                             </p>
-                              <button href="#" className="" id="servicecard2">
-                                {" "}
-                                Read More{" "}
-                                <img
-                                  src="\Image\next.png"
-                                  alt=""
-                                  width={18}
-                                  height={18}
-                                />
-                              </button>{" "}
+                            <button href="#" className="" id="servicecard2">
+                              {" "}
+                              Read More{" "}
+                              <img
+                                src="\Image\next.png"
+                                alt=""
+                                width={18}
+                                height={18}
+                              />
+                            </button>{" "}
                           </div>
                         </div>
                       </Link>
@@ -763,16 +776,16 @@ export default function Home() {
                               Ensure continuous operations with our dedicated
                               ...{" "}
                             </p>
-                              <button href="#" className="" id="servicecard2">
-                                {" "}
-                                Read More{" "}
-                                <img
-                                  src="\Image\next.png"
-                                  alt=""
-                                  width={18}
-                                  height={18}
-                                />
-                              </button>{" "}
+                            <button href="#" className="" id="servicecard2">
+                              {" "}
+                              Read More{" "}
+                              <img
+                                src="\Image\next.png"
+                                alt=""
+                                width={18}
+                                height={18}
+                              />
+                            </button>{" "}
                           </div>
                         </div>
                       </Link>
@@ -843,23 +856,23 @@ export default function Home() {
                               Transition smoothly to Mule 4 with our
                               comprehensive ...
                             </p>
-                              <button href="#" className="" id="servicecard2">
-                                {" "}
-                                Read More{" "}
-                                <img
-                                  src="\Image\next.png"
-                                  alt=""
-                                  width={18}
-                                  height={18}
-                                />
-                              </button>{" "}
+                            <button href="#" className="" id="servicecard2">
+                              {" "}
+                              Read More{" "}
+                              <img
+                                src="\Image\next.png"
+                                alt=""
+                                width={18}
+                                height={18}
+                              />
+                            </button>{" "}
                           </div>
                         </div>
                       </Link>
                     </div>
                   </div>
 
-                
+
                   <div className="row">
                     <div
                       className="col-md-12 mt-4"
@@ -882,7 +895,7 @@ export default function Home() {
               </div>
             </div>
             {/* 2nd Module Ends */}
-           
+
             <div
               className="col-md-12"
               id="sect"
@@ -1240,7 +1253,7 @@ export default function Home() {
               </div>
             </div>
             {/*5th Module Ends */}
-            
+
             {/*7th Module Starts */}
             <div className="col-md-12" id="minisect">
               <div className="container">
@@ -1597,7 +1610,7 @@ export default function Home() {
                         </div>
                       </div>
                     </SwiperSlide>
-              
+
                     <SwiperSlide>
                       <div className="container-lg">
                         <div className="row ">
@@ -1703,8 +1716,49 @@ export default function Home() {
                     background:
                       "radial-gradient(circle closest-side, rgba(76, 129, 197, 0.8), rgba(108, 164, 233, 0.3), rgba(255, 255, 255, 0.1))",
                   }}
+
                 >
-                  <div
+
+                  <div className="row">
+                    {blogs.map((blog, index) => (
+                      <div
+                        className="col-md-4"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                        key={blog.id}
+                      >
+                        <div className="card mt-4" id="boxtagcard" style={{ display: "flex", width: "100%" }}>
+                          <img
+                            src={blog.banner_image_url || "/Image/blog-i.jpg"}
+                            alt={blog.title}
+                            style={{ width: "100%", height: "200px", objectFit: "cover" }}
+                          />
+                          <div className="card-body" style={{ marginRight: "20px" }}>
+                            <div className="d-flex justify-content-between">
+                              <div className="col-md-4">
+                                <p>{new Date(blog.createdAt).toDateString()}</p>
+                              </div>
+                            </div>
+                            <h3>{blog.title}</h3>
+                            <p>{blog.short_desc}</p>
+                            <Link href={`/blogs/${blog.id}`}>
+                              <button className="" id="servicecard2">
+                                READ MORE
+                                <img
+                                  src="/Image/next.png"
+                                  alt="Next"
+                                  width={18}
+                                  height={18}
+                                />
+                              </button>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* <div
                     className="col-md-4"
                     data-aos="fade-up"
                     data-aos-delay="200"
@@ -1724,19 +1778,19 @@ export default function Home() {
                         style={{ marginRight: "20px" }}
                       >
                         <div className="d-flex">
-                          {/* <div className='col-md-6'>
+                          <div className='col-md-6'>
                           <h4 id='boxtag' className='text-center me-2'>TECHNOLOGY</h4>
                         </div>
                         <div className='col-md-6'>
                           <h4 id='boxtag' className='text-center me-2'>TECHNOLOGY</h4>
-                        </div> */}
+                        </div>
                         </div>
                         <div className="d-flex justify-content-between">
                           <div className="col-md-4">
                             <p>Thu Mar21 2024</p>
                           </div>
                           <div className="col-md-4">
-                            {/* <p>
+                            <p>
                               <img
                                 src="\Image\conversation.png"
                                 alt=""
@@ -1744,7 +1798,7 @@ export default function Home() {
                                 height={15}
                               />{" "}
                               0
-                            </p> */}
+                            </p>
                           </div>
                         </div>
                         <h3>this blog is about</h3>
@@ -1763,8 +1817,8 @@ export default function Home() {
                         </Link>
                       </div>
                     </div>
-                  </div>
-                  <div
+                  </div> */}
+                  {/* <div
                     className="col-md-4"
                     data-aos="fade-up"
                     data-aos-delay="400"
@@ -1777,19 +1831,19 @@ export default function Home() {
 
                       <div className="card-body ">
                         <div className="d-flex">
-                          {/* <div className='col-md-6'>
+                          <div className='col-md-6'>
                           <h4 id='boxtag' className='text-center me-2'>TECHNOLOGY</h4>
                         </div>
                         <div className='col-md-6'>
                           <h4 id='boxtag' className='text-center me-2'>TECHNOLOGY</h4>
-                        </div> */}
+                        </div>
                         </div>
                         <div className="d-flex justify-content-between">
                           <div className="col-md-4">
                             <p>Thu Mar 21 2024</p>
                           </div>
                           <div className="col-md-4">
-                            {/* <p>
+                            <p>
                               <img
                                 src="\Image\conversation.png"
                                 alt=""
@@ -1797,7 +1851,7 @@ export default function Home() {
                                 height={15}
                               />{" "}
                               0
-                            </p> */}
+                            </p>
                           </div>
                         </div>
                         <h3>This is startups</h3>
@@ -1817,8 +1871,8 @@ export default function Home() {
                         </Link>
                       </div>
                     </div>
-                  </div>
-                  <div
+                  </div> */}
+                  {/* <div
                     className="col-md-4"
                     data-aos="fade-up"
                     data-aos-delay="600"
@@ -1831,19 +1885,19 @@ export default function Home() {
 
                       <div className="card-body ">
                         <div className="d-flex">
-                          {/* <div className='col-md-6'>
+                          <div className='col-md-6'>
                           <h4 id='boxtag' className='text-center me-2'>TECHNOLOGY</h4>
                         </div>
                         <div className='col-md-6'>
                           <h4 id='boxtag' className='text-center me-2'>TECHNOLOGY</h4>
-                        </div> */}
+                        </div>
                         </div>
                         <div className="d-flex justify-content-between">
                           <div className="col-md-4">
                             <p>Thu Mar 21 2024</p>
                           </div>
                           <div className="col-md-4 ">
-                            {/* <p>
+                            <p>
                               <img
                                 src="\Image\conversation.png"
                                 alt=""
@@ -1851,7 +1905,7 @@ export default function Home() {
                                 height={15}
                               />{" "}
                               0
-                            </p> */}
+                            </p>
                           </div>
                         </div>
                         <h3>This blog is about</h3>
@@ -1871,7 +1925,7 @@ export default function Home() {
                         </Link>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* Pagination */}
