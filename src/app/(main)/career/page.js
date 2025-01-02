@@ -380,7 +380,7 @@ function Career() {
                 >
 
 <div className="row">
-                    {blogs.map((blog, index) => (
+                    {blogs.slice(0, 3).map((blog, index) => (
                       <div
                         className="col-md-4"
                         data-aos="fade-up"
